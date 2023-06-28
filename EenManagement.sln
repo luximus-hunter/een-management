@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity", "Identity\Identity.csproj", "{0194709C-E127-4E8C-B96B-BE716977E752}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEN.Management", "EEN.Management\EEN.Management.csproj", "{0194709C-E127-4E8C-B96B-BE716977E752}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

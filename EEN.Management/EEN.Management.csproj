@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>aspnet-Identity-03776D42-0DCC-4B2B-8F85-0D0DACD49E6A</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>Identity</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

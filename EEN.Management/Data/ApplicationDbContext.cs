@@ -15,7 +15,7 @@ public class ApplicationDbContext : IdentityDbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.HasDefaultSchema("Identity");
+        builder.HasDefaultSchema("EEN.Management");
         builder.Entity<IdentityUser>(entity =>
         {
             entity.ToTable(name: "User");
