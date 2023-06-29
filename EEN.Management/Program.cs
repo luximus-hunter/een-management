@@ -1,20 +1,29 @@
+using EEN.Management.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Identity.Data;
-using Identity.Models;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-                          throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+if (builder.Environment.IsDevelopment())
+{
+    string connectionString = builder.Configuration.GetConnectionString("Development") ??
+                              throw new InvalidOperationException("Connection string 'Development' not found.");
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlite(connectionString));
+}
+else
+{
+    string connectionString = builder.Configuration.GetConnectionString("Production") ??
+                              throw new InvalidOperationException("Connection string 'Production' not found.");
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(connectionString));
+}
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services
     .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddUserManager<UserManager<IdentityUser>>()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()

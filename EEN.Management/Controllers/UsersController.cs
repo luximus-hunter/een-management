@@ -1,3 +1,4 @@
+using EEN.Management.Data;
 using Identity.Data;
 using Identity.Enums;
 using Identity.Models;
